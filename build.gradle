@@ -1,0 +1,27 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/xwc/AndroidLibrary' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.novoda:bintray-release:0.8.1'
+//        classpath "com.vea:cost:${project.plugin_version}"
+//        classpath "com.vea:cost:0.0.1.4"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/xwc/AndroidLibrary' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,19 @@
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: 'http://192.168.30.151:8081/nexus/content/repositories/taojiji-release/') {//仓库地址
+            authentication(userName: "admin",//用户名
+                    password: "af-h808t")//密码
+        }
+
+        pom.project {
+            url 'http://192.168.30.151:8081/nexus/content/repositories/taojiji-release/'//仓库地址
+            groupId = 'com.vea.okhttp'
+            artifactId = 'okhttp-api'
+            version = '0.0.1'
+        }
+
+    }
+
+}

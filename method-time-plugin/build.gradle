@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+apply plugin: 'java-gradle-plugin'
+apply from: "publish.gradle"
+dependencies {
+    //使用项目中指定的gradle wrapper版本，插件中使用的Project对象等等就来自这里
+//    implementation gradleApi()
+    //使用本地的groovy
+//    implementation localGroovy()
+    //Android编译的大部分gradle源码，比如上面讲到的TaskManager
+    implementation 'com.android.tools.build:gradle:3.1.4'
+    //这个依赖里其实主要存了transform的依赖，注意，这个依赖不同于上面的gradleApi()
+    implementation 'com.android.tools.build:gradle-api:3.1.4'
+    //ASM相关
+    implementation 'org.ow2.asm:asm:5.1'
+    implementation 'org.ow2.asm:asm-util:5.1'
+    implementation 'org.ow2.asm:asm-commons:5.1'
+    implementation 'com.vea.common:basic-transform:1.0.0'
+}
+repositories {
+}
+
+gradlePlugin {
+    plugins {
+        cost {
+            id = 'com.vea.cost'
+            implementationClass = 'com.vea.plugin.MethodTimePlugin'
+        }
+    }
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+

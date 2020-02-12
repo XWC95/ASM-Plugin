@@ -1,0 +1,1 @@
+include ':app', ':method-time-plugin', ':method-time-api', ':basic-transform', ':okhttp-plugin', ':okhttp-api'

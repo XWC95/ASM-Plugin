@@ -1,0 +1,10 @@
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: uri('../repo'))
+        pom.groupId = 'com.vea.okhttp.plugin'
+        pom.artifactId = 'okplugin'
+        pom.version = '0.0.1'
+    }
+}
